@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <path d="M8 8 L40 4 L72 8 L72 42 C72 58 56 72 40 78 C24 72 8 58 8 42 Z" fill="#D4A017" stroke="#fff" stroke-width="2"/>
+  <path d="M28 22 L28 58 M28 22 L44 22 C52 22 56 28 56 34 C56 40 52 46 44 46 L28 46" stroke="#1a1a2e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M42 38 L36 50 L42 48 L38 60 L50 44 L44 46 L48 38 Z" fill="#1a1a2e"/>
+  <text x="88" y="32" font-family="Arial Black, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" letter-spacing="2">COMPLEXO</text>
+  <text x="88" y="58" font-family="Arial Black, Arial, sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="1">PRESIDA</text>
+</svg>
