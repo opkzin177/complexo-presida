@@ -1,33 +1,49 @@
 # Complexo Presida — Painel do Escritório
 
-Sistema de gestão de alunos para o Complexo Presida (Vôlei de Praia e Futevôlei).
+Site admin: gestão de alunos, planos, pulseiras, financeiro e Asaas.
 
-## Funcionalidades
+## Deploy
+- **Live:** https://complexo-presida.netlify.app
+- **GitHub:** este repositório
+- **Nuvem dados:** Supabase (`clientes`, `pulseiras`)
 
-- Dashboard com busca por nome/CPF
-- Cadastro de clientes (modal flutuante)
-- Página individual de cada aluno
-- Planos: Anual R$ 200 | Semestral R$ 230 | Mensal R$ 280
-- Modalidades: Vôlei de Praia e Futevôlei
-- Lista de clientes com filtro
-- Menu lateral responsivo (mobile)
+## Estrutura
+```
+/
+├── index.html              # SPA principal (escritório)
+├── admin.html              # cópia espelho
+├── netlify.toml            # SPA + functions
+├── netlify/functions/
+│   └── asaas.js            # proxy API Asaas (recorrência / link)
+├── logo.svg
+└── README.md
+```
 
-## Banco na nuvem (para vários computadores)
+Dados de alunos ficam no **Supabase** (não no GitHub). No app, cada aluno tem sua “pasta” (página individual) com:
+- Resumo financeiro e parcelas
+- WhatsApp 1 clique
+- Trancar / destrancar (adiar treinos e pausar cobrança)
+- Links Asaas de cobrança
 
-Hoje os dados ficam no navegador (localStorage).
-Para sincronizar em todos os PCs sem peso, use **Supabase** (grátis):
+## Planos
+| Plano | Valor |
+|-------|-------|
+| **6x R$ 200** | R$ 1.200 total (6 parcelas) |
+| Anual | R$ 200 |
+| Semestral | R$ 230 |
+| Mensal | R$ 280 |
 
-1. Crie conta em https://supabase.com
-2. Crie um projeto
-3. No SQL Editor rode a tabela `clientes` (veja instruções no README completo do repo)
-4. Depois integramos a URL e a chave no painel
+## Travar aluno
+Na ficha do aluno → **Trancar** → informa quantos meses. Nesse período:
+- não cobra mensalidade
+- parcelas em aberto são **adiadas** (meses sem treino vão para frente)
+- status fica **Trancado**
 
-## Planos oficiais
+## WhatsApp
+Botão verde em lista e na ficha abre `wa.me` com o número cadastrado.
 
-| Modalidade | Anual | Semestral | Mensal |
-|------------|-------|-----------|--------|
-| Vôlei de Praia | R$ 200 | R$ 230 | R$ 280 |
-| Futevôlei | R$ 200 | R$ 230 | R$ 280 |
+## Asaas
+Configurações → API Key. Financeiro → gerar link avulso ou recorrência cartão.
 
----
-by: Complexo Presida
+## Desenvolvimento
+Edite `index.html` e publique no Netlify (pasta raiz + functions).
